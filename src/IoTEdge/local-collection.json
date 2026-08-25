@@ -1,9 +1,9 @@
 {
   "contractVersion": "edge-collection-v1",
   "edgeNodeId": "7c7f8e44-646e-4e75-a31d-8c4e4b4f5f39",
-  "version": 2,
-  "updatedAt": "2026-05-11T12:51:41.2115759Z",
-  "updatedBy": "LocalEdge",
+  "version": 6,
+  "updatedAt": "2026-08-25T06:04:17.7887166Z",
+  "updatedBy": "\u672C\u5730\u63A7\u5236\u53F0",
   "upload": {
     "targetKey": "sonnetdb-main",
     "displayName": "SonnetDB \u4E3B\u76EE\u6807",
@@ -14,7 +14,11 @@
       "token": "sonnetdb-dev-token",
       "measurement": "edge_modbus",
       "field": "value",
-      "site": "Docker \u7F16\u6392"
+      "site": "Docker \u7F16\u6392",
+      "connectionString": "",
+      "includeRawValue": "false",
+      "rawField": "raw_value",
+      "flush": "async"
     },
     "enabled": true,
     "batchSize": 1,
@@ -31,7 +35,11 @@
         "token": "sonnetdb-dev-token",
         "measurement": "edge_modbus",
         "field": "value",
-        "site": "Docker \u7F16\u6392"
+        "site": "Docker \u7F16\u6392",
+        "connectionString": "",
+        "includeRawValue": "false",
+        "rawField": "raw_value",
+        "flush": "async"
       },
       "enabled": true,
       "batchSize": 1,
@@ -70,7 +78,7 @@
         "retryCount": 3,
         "protocolOptions": {
           "endianFormat": "ABCD",
-          "plcAddresses": true
+          "plcAddresses": "true"
         }
       },
       "devices": [
@@ -156,14 +164,14 @@
       }
     },
     {
-      "id": "add8e121-dc15-4278-b4aa-592f6a619f1d",
+      "id": "b966ef14-55a6-474d-809e-68922c9c7397",
       "taskKey": "siemenss7-collector",
       "protocol": "SiemensS7",
       "version": 1,
       "edgeNodeId": "7c7f8e44-646e-4e75-a31d-8c4e4b4f5f39",
       "connection": {
         "connectionKey": "siemenss7-collector-connection",
-        "connectionName": "Siemens S7 \u8FDE\u63A5",
+        "connectionName": "\u897F\u95E8\u5B50 S7 \u8FDE\u63A5",
         "protocol": "SiemensS7",
         "transport": "",
         "host": "127.0.0.1",
@@ -179,11 +187,40 @@
       "devices": [
         {
           "deviceKey": "siemenss7-01",
-          "deviceName": "Siemens S7 \u8BBE\u5907 01",
+          "deviceName": "\u897F\u95E8\u5B50 S7 \u8BBE\u5907 01",
           "enabled": true,
           "externalKey": "siemenss7-01",
           "protocolOptions": {},
           "points": []
+        },
+        {
+          "deviceKey": "siemenss7-02",
+          "deviceName": "\u897F\u95E8\u5B50 S7 \u8BBE\u5907 02",
+          "enabled": true,
+          "externalKey": "siemenss7-02",
+          "protocolOptions": {},
+          "points": [
+            {
+              "pointKey": "point-1",
+              "pointName": "\u70B9\u4F4D 1",
+              "sourceType": "Address",
+              "address": "DB1.DBD0",
+              "rawValueType": "Float",
+              "length": 2,
+              "polling": {
+                "readPeriodMs": 2000,
+                "group": "default"
+              },
+              "transforms": [],
+              "mapping": {
+                "targetType": "Telemetry",
+                "targetName": "point_1",
+                "valueType": "Double",
+                "displayName": "\u70B9\u4F4D 1"
+              },
+              "protocolOptions": {}
+            }
+          ]
         }
       ],
       "reportPolicy": {
